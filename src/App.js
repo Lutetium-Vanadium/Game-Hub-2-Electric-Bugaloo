@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Route, Switch } from "react-router-dom";
+
+import { TicTacToe, GameOfLife, Snake } from "games";
+import Home from "Home";
+
+import "styles/App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // use to control animations
+    const [backToHome, setBackToHome] = useState(false);
+
+    const returnToHome = () => {
+        setBackToHome(true);
+        setTimeout(() => {
+            setBackToHome(false);
+        }, 400);
+    };
+
+    return (
+        <div className="App">
+            <Switch>
+                <Route
+                    path="/TicTacToe"
+                    render={() => <TicTacToe returnToHome={returnToHome} />}
+                />
+                <Route
+                    path="/GameOfLife"
+                    render={() => <GameOfLife returnToHome={returnToHome} />}
+                />
+                <Route path="/" component={Snake} />
+            </Switch>
+            {backToHome ? <Home backToHome={true} /> : null}
+        </div>
+    );
 }
 
 export default App;

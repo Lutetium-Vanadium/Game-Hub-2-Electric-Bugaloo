@@ -1,0 +1,43 @@
+.late-fade {
+    animation: fade-out 200ms linear 600ms;
+}
+
+.fade-in {
+    animation: fade-in 300ms linear;
+}
+
+.slide-in {
+    animation: slide-in 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.slide-out {
+    transform: translateX(100vw);
+    transition: transform 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(-100vw);
+    }
+    to {
+        transform: translateX(0);
+    }
+}

@@ -1,0 +1,217 @@
+.GameOfLife {
+    background-color: #282c34;
+    color: white;
+    font-size: calc(10px + 2vmin);
+    height: 100vh;
+    width: 100vw;
+
+    .main-page {
+        align-content: center;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .dashboard {
+        align-items: center;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: space-around;
+        background: #282c34;
+    }
+
+    .board {
+        align-items: center;
+        background: #181c24;
+        display: flex;
+        flex: 4;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: center;
+    }
+
+    .main-board {
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .footer {
+        height: 10vh;
+        width: 70vw;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        button {
+            width: 10vw;
+            height: 5vh;
+        }
+    }
+
+    #disabled {
+        background: rgb(100, 100, 100);
+        cursor: auto;
+        box-shadow: 1vw 0.5vh 1vw rgba(0, 0, 0, 0.4);
+        transform: scale(1, 1);
+    }
+
+    .row {
+        display: flex;
+        object-fit: cover;
+
+        > div {
+            text-align: center;
+            border: 1px solid #999;
+            transition: all 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+    }
+
+    .rangeSlider {
+        margin: 2vh 0;
+        width: 18vw;
+        appearance: none;
+        -webkit-appearance: none;
+        background: rgb(26, 24, 36);
+        border-radius: 10px;
+        height: 20px;
+        --thumbCol: rgb(70, 121, 216);
+
+        &:focus {
+            outline: none;
+        }
+
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            background-color: var(--thumbCol);
+            content: "hello";
+        }
+
+        &::-moz-range-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            background-color: var(--thumbCol);
+            content: "hello";
+        }
+        &::-moz-range-progress {
+            height: 20px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            background-color: rgb(55, 106, 201);
+        }
+    }
+
+    .submit {
+        color: white;
+        padding: 7%;
+    }
+
+    .flex {
+        height: 70vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    p {
+        text-align: center;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    button {
+        background: none;
+        border: none;
+        background-color: rgb(55, 106, 201);
+        border-radius: 1vh;
+        box-shadow: 1vw 0.5vh 1vw rgba(0, 0, 0, 0.4);
+        color: white;
+        transition: transform 400ms cubic-bezier(0.215, 0.61, 0.355, 1),
+            background-color 400ms linear,
+            box-shadow 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
+        &:hover {
+            transform: scale(1.1, 1.1);
+            background-color: rgb(70, 121, 216);
+            box-shadow: 1.1vw 0.55vh 1.1vw rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .main-page {
+            flex-direction: column-reverse;
+        }
+
+        .main-board {
+            width: 100vw;
+            height: 75vh;
+        }
+        .board {
+            width: 100vw;
+            height: 85vh;
+        }
+
+        .dashboard {
+            position: absolute;
+            bottom: 0;
+            width: 100vw;
+            transition: height 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        .dashboard-head {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 10vh;
+
+            div {
+                flex: 1;
+            }
+
+            h2 {
+                margin: 0 !important;
+                flex: 5;
+                width: 80vw;
+            }
+        }
+
+        .rangeSlider {
+            width: 80vw;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        .footer {
+            width: 100vw;
+
+            button {
+                width: auto;
+                padding: 0 20px;
+            }
+        }
+    }
+
+    .exit {
+        background: none;
+
+        &:hover {
+            background: none;
+            transform: scale(1, 1);
+        }
+    }
+}

@@ -1,0 +1,12 @@
+.Snake {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111215;
+
+    .board {
+        background: #0c0e12;
+    }
+}

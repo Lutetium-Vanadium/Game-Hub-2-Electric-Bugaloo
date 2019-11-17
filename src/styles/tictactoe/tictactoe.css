@@ -1,0 +1,254 @@
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: local("Raleway Thin"), local("Raleway-Thin"), url(https://fonts.gstatic.com/s/raleway/v14/1Ptsg8zYS_SKggPNwE44TYFq.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+.tictactoe {
+  background-color: #191919;
+  height: 100vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+}
+
+.tictactoe .dashboard {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 20vw;
+}
+
+.tictactoe .dashboard #selected {
+  -webkit-transform: scale(1.15, 1.15);
+          transform: scale(1.15, 1.15);
+}
+
+.tictactoe .dashboard #selected:hover {
+  -webkit-transform: scale(1.225, 1.225);
+          transform: scale(1.225, 1.225);
+}
+
+.tictactoe .dashboard .main {
+  background-color: #2a80f7;
+  width: 12vw;
+  height: 4vw;
+  -webkit-box-shadow: 3vw 1vw 2vw rgba(0, 0, 0, 0.3);
+          box-shadow: 3vw 1vw 2vw rgba(0, 0, 0, 0.3);
+  border-radius: 0.75vh;
+}
+
+.tictactoe .dashboard .main:hover {
+  -webkit-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
+}
+
+.tictactoe .dashboard .deactivated {
+  background: #464646;
+  cursor: auto;
+}
+
+.tictactoe .dashboard .hard {
+  background: #e40a0a;
+}
+
+.tictactoe .dashboard .hard:hover {
+  -webkit-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
+}
+
+.tictactoe .dashboard .medium {
+  background: #e45919;
+}
+
+.tictactoe .dashboard .medium:hover {
+  -webkit-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
+}
+
+.tictactoe .dashboard .easy {
+  background: #079507;
+}
+
+.tictactoe .dashboard .easy:hover {
+  -webkit-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
+}
+
+.tictactoe .dashboard button {
+  background: none;
+  border: none;
+  padding: 2%;
+  width: 8vw;
+  height: 3vw;
+  border-radius: 0.5vh;
+  color: white;
+  -webkit-box-shadow: 2vw 0.75vw 1vw rgba(0, 0, 0, 0.3);
+          box-shadow: 2vw 0.75vw 1vw rgba(0, 0, 0, 0.3);
+  -webkit-transition: all 400ms linear, -webkit-transform 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 400ms linear, -webkit-transform 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 400ms linear, transform 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 400ms linear, transform 400ms cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.tictactoe .dashboard p {
+  size: 20px;
+}
+
+.tictactoe .main {
+  width: 60vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100vh;
+}
+
+.tictactoe .main p {
+  margin: 30px;
+}
+
+.tictactoe .grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+  width: 80vh;
+  height: 80vh;
+}
+
+.tictactoe .grid div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5%;
+  font-size: 13vh;
+  font-family: Raleway;
+  font-weight: 100;
+  cursor: pointer;
+}
+
+.tictactoe .grid div p {
+  -webkit-transform: translateY(-5%);
+          transform: translateY(-5%);
+}
+
+.tictactoe .grid div:nth-child(2) {
+  border-right: 2px solid white;
+  border-left: 2px solid white;
+}
+
+.tictactoe .grid div:nth-child(4) {
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+}
+
+.tictactoe .grid div:nth-child(5) {
+  border: 2px solid white;
+}
+
+.tictactoe .grid div:nth-child(6) {
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+}
+
+.tictactoe .grid div:nth-child(8) {
+  border-right: 2px solid white;
+  border-left: 2px solid white;
+}
+
+.tictactoe .side {
+  width: 20vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.tictactoe .side .reset {
+  padding: 5%;
+  height: 8vh;
+  width: 13vw;
+  border: 1px solid #2a80f7;
+  border-radius: 1vh;
+  margin: 2vh;
+  -webkit-transition: background-color 300ms linear;
+  transition: background-color 300ms linear;
+}
+
+.tictactoe .side .reset:hover {
+  background: #2a80f7;
+}
+
+.tictactoe .side h3 {
+  -webkit-transition: opacity 300ms linear;
+  transition: opacity 300ms linear;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+button:focus {
+  outline: none;
+  text-decoration: none;
+}
+/*# sourceMappingURL=tictactoe.css.map */
