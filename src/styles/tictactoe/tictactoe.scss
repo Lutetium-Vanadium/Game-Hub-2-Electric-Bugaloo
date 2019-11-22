@@ -163,7 +163,8 @@
             border: 1px solid rgb(42, 128, 247);
             border-radius: 1vh;
             margin: 2vh;
-            transition: background-color 300ms linear;
+            transition: background-color 300ms linear,
+                transform 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
 
             &:hover {
                 background: rgb(42, 128, 247);

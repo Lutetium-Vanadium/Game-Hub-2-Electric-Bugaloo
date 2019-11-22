@@ -1,25 +1,16 @@
 import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { init, checkForWin, ai } from "./functions";
 
 import "styles/tictactoe/tictactoe.css";
 
-function TicTacToe({ history, returnToHome }) {
+function TicTacToe() {
     const [boxes, setBoxes] = useState(init());
     const [hardness, setHardness] = useState(1);
     const [singlePlayer, setSinglePlayer] = useState(true);
     const [turn, setTurn] = useState(1);
     const [won, setWon] = useState(-1);
-    const [backToHome, setBackToHome] = useState(false);
-
-    const exit = () => {
-        setBackToHome(true);
-        returnToHome();
-        setTimeout(() => {
-            history.push("/");
-        }, 400);
-    };
 
     const reset = () => {
         setBoxes(init());
@@ -35,7 +26,9 @@ function TicTacToe({ history, returnToHome }) {
         let tempBoxes = [...boxes];
         tempBoxes[i] = ((turn + 1) % 2) + 1;
 
-        if (singlePlayer) {
+        let winner = checkForWin(tempBoxes, 1) ? 1 : won;
+
+        if (singlePlayer && winner !== 1) {
             let move = ai(tempBoxes, hardness);
             tempBoxes[move] = 2;
             setTurn(turn + 2);
@@ -46,7 +39,6 @@ function TicTacToe({ history, returnToHome }) {
 
         setBoxes(tempBoxes);
 
-        let winner = checkForWin(tempBoxes, 1) ? 1 : won;
         winner = checkForWin(tempBoxes, 2) ? 2 : winner;
         setWon(winner);
     };
@@ -62,7 +54,7 @@ function TicTacToe({ history, returnToHome }) {
     };
 
     return (
-        <div className={`tictactoe fade-in ${backToHome ? "slide-out" : ""}`}>
+        <div className="tictactoe">
             <div className="dashboard">
                 <button className="main" onClick={changePlayerMode}>
                     {singlePlayer ? "Two player" : "Single Player"}
@@ -129,15 +121,15 @@ function TicTacToe({ history, returnToHome }) {
                 <button className="reset" onClick={reset}>
                     Reset
                 </button>
-                <button className="exit" onClick={exit}>
+                <Link to="/" className="exit">
                     Exit
-                </button>
+                </Link>
             </div>
         </div>
     );
 }
 
-export default withRouter(TicTacToe);
+export default TicTacToe;
 
 function Box({ owner, i, handleClick, hardness }) {
     const onClick = () => {

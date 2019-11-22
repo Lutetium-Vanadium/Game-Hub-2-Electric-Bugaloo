@@ -127,6 +127,7 @@
   border-radius: 10px;
   height: 20px;
   --thumbCol: rgb(70, 121, 216);
+  overflow: visible;
 }
 
 .GameOfLife .rangeSlider:focus {

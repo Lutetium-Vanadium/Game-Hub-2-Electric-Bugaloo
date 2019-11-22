@@ -71,6 +71,7 @@ function Board(props) {
 
     useEffect(() => {
         if (props.backToHome) {
+            renders = 0;
             clearAllIntervals();
         }
         // eslint-disable-next-line

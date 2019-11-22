@@ -34,10 +34,12 @@ function Snake() {
     };
 
     const draw = snake => {
+        console.log({ ctx });
         if (ctx === null) return;
         ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
         snake.forEach(block => {
+            console.log({ block });
             ctx.fillRect(
                 block[0] * BLOCK_SIZE,
                 block[1] * BLOCK_SIZE,
@@ -99,7 +101,7 @@ function Snake() {
     useEffect(() => {
         const timer = setTimeout(() => {
             frame();
-        }, 1000 / FPS);
+        }, 100000 / FPS);
         return () => {
             window.clearTimeout(timer);
         };
@@ -113,7 +115,9 @@ function Snake() {
                 height={(9 * window.innerHeight) / 10}
                 className="board"
             ></canvas>
-            <button className="exit" onClick={exit}></button>
+            <button className="exit" onClick={exit}>
+                Exit
+            </button>
         </div>
     );
 }

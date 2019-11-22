@@ -1,37 +1,31 @@
-import React, { useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import React from "react";
+import { Route, Switch, useLocation } from "react-router-dom";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-import { TicTacToe, GameOfLife, Snake } from "games";
+import { TicTacToe, GameOfLife } from "games";
 import Home from "Home";
 
 import "styles/App.css";
 
 function App() {
-    // use to control animations
-    const [backToHome, setBackToHome] = useState(false);
-
-    const returnToHome = () => {
-        setBackToHome(true);
-        setTimeout(() => {
-            setBackToHome(false);
-        }, 400);
-    };
+    let location = useLocation();
 
     return (
-        <div className="App">
-            <Switch>
-                <Route
-                    path="/TicTacToe"
-                    render={() => <TicTacToe returnToHome={returnToHome} />}
-                />
-                <Route
-                    path="/GameOfLife"
-                    render={() => <GameOfLife returnToHome={returnToHome} />}
-                />
-                <Route path="/" component={Snake} />
-            </Switch>
-            {backToHome ? <Home backToHome={true} /> : null}
-        </div>
+        <TransitionGroup className="App">
+            <CSSTransition
+                key={location.key}
+                classNames={
+                    location.pathname === "/" ? "slide-right" : "slide-left"
+                }
+                timeout={700}
+            >
+                <Switch location={location}>
+                    <Route path="/TicTacToe" component={TicTacToe} />
+                    <Route path="/GameOfLife" component={GameOfLife} />
+                    <Route path="/" component={Home} />
+                </Switch>
+            </CSSTransition>
+        </TransitionGroup>
     );
 }
 

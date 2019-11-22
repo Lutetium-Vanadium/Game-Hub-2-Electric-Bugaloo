@@ -6,7 +6,7 @@ import DashBoard from "./components/DashBoard";
 
 import "styles/gameoflife/gameoflife.css";
 
-function GameOfLIfe({ returnToHome, history }) {
+function GameOfLIfe({ history }) {
     const [speed, setSpeed] = useState(1.5);
     const [numAlive, setNumAlive] = useState(132);
     const [width, setWidth] = useState(40);
@@ -14,15 +14,12 @@ function GameOfLIfe({ returnToHome, history }) {
     const [backToHome, setBackToHome] = useState(false);
 
     const exit = () => {
-        returnToHome();
         setBackToHome(true);
-        setTimeout(() => {
-            history.push("/");
-        }, 400);
+        history.push("/");
     };
 
     return (
-        <div className={`GameOfLife ${backToHome ? "slide-out" : ""}`}>
+        <div className="GameOfLife">
             <div className="main-page">
                 <DashBoard
                     width={width}

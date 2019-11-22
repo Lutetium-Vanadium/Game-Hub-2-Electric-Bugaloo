@@ -1,13 +1,6 @@
 import React from "react";
 
-export default function Icon({
-    onClick,
-    style,
-    innerClass,
-    id,
-    title,
-    name = null
-}) {
+export default function Icon({ onClick, style, id, title, name = null }) {
     return (
         <button
             id={id}
@@ -16,7 +9,7 @@ export default function Icon({
             onClick={onClick}
             className="icon"
         >
-            <div className={innerClass} title={title}>
+            <div title={title}>
                 <img
                     src={require(`pictures/${id}Icon.png`)}
                     alt={id}

@@ -1,7 +1,3 @@
-const randint = (start, stop) => {
-    return start + Math.round(Math.random() * stop);
-};
-
 const choice = array => {
     return array[Math.floor(Math.random() * array.length)];
 };
@@ -110,11 +106,7 @@ export default (boxes, hardness) => {
         }
     });
 
-    let rand = randint(0, 99);
-    rand %= 2;
-
-    if ((hardness === 2 && rand === 1) || hardness === 3) {
-        console.log("T1");
+    if (hardness === 3) {
         if (
             ((boxes[1] === boxes[6]) === 1 || (boxes[2] === boxes[3]) === 1) &&
             boxes[0] === -1
@@ -139,10 +131,7 @@ export default (boxes, hardness) => {
         ) {
             return 8;
         }
-    }
 
-    if ((hardness === 2 && rand === 0) || hardness === 3) {
-        console.log("T2");
         if ((boxes[1] === boxes[3]) === 1 && boxes[0] === -1) {
             return 0;
         }
@@ -157,9 +146,10 @@ export default (boxes, hardness) => {
         }
     }
 
-    console.log("hello");
-
-    if (boxes[4] !== 1) {
+    if (
+        (boxes[4] !== 1 && hardness !== 1) ||
+        (boxes[4] === 1 && hardness === 1)
+    ) {
         if (edge_list.length) {
             return choice(edge_list);
         }
