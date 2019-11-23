@@ -8,7 +8,6 @@ import "styles/animations/animations.css";
 
 function Home({ history }) {
     const goToApp = e => {
-        // eslint-disable-next-line no-unused-vars
         let location = e.target.title;
         history.push(location);
     };
@@ -26,7 +25,6 @@ function Home({ history }) {
                         name={name || id}
                     />
                 ))}
-                <button className="icon">Temp</button>
                 <button className="icon">Temp</button>
                 <button className="icon">Temp</button>
             </div>
@@ -48,5 +46,6 @@ export default withRouter(Home);
 
 const games = [
     { id: "TicTacToe", title: "/TicTacToe" },
-    { id: "GameOfLife", title: "/GameOfLife", name: "Game of Life" }
+    { id: "GameOfLife", title: "/GameOfLife", name: "Game of Life" },
+    { id: "Snake", title: "/Snake" }
 ];

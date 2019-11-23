@@ -51,13 +51,11 @@ function Board(props) {
                 ? (window.innerHeight * maxHeight) / props.height
                 : (maxWidth * window.innerWidth) / props.width
         );
-        setIntervalInstances([
-            ...intervalInstances,
-            setInterval(() => {
-                setBoxes(updateBoxes(boxes));
-                renders += 1;
-            }, 500 / props.speed)
-        ]);
+        let interval = setInterval(() => {
+            setBoxes(updateBoxes(boxes));
+            renders += 1;
+        }, 500 / props.speed);
+        setIntervalInstances([...intervalInstances, interval]);
         setMounted(true);
         // eslint-disable-next-line
     }, [update]);

@@ -1,17 +1,19 @@
 import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import Board from "./components/Board";
 import DashBoard from "./components/DashBoard";
 
 import "styles/gameoflife/gameoflife.css";
 
-function GameOfLIfe({ history }) {
+function GameOfLife() {
     const [speed, setSpeed] = useState(1.5);
     const [numAlive, setNumAlive] = useState(132);
     const [width, setWidth] = useState(40);
     const [height, setHeight] = useState(25);
     const [backToHome, setBackToHome] = useState(false);
+
+    let history = useHistory();
 
     const exit = () => {
         setBackToHome(true);
@@ -46,4 +48,4 @@ function GameOfLIfe({ history }) {
     );
 }
 
-export default withRouter(GameOfLIfe);
+export default GameOfLife;
