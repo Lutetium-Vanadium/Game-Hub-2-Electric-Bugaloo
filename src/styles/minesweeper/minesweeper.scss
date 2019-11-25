@@ -1,0 +1,38 @@
+.minesweeper {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+
+    $gray: rgb(110, 110, 110);
+    $dead-red: rgb(89, 5, 5);
+
+    .regular-box {
+        background: $gray;
+    }
+
+    .row div {
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .flag-box {
+        background-image: url("../../pictures/flag.png");
+        background-size: 80% 80%;
+        background-repeat: no-repeat;
+        background-position: 80% 80%;
+        background-color: $gray;
+    }
+
+    .bomb {
+        background-image: url("../../pictures/mine.png");
+        background-size: 50% 50%;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+
+    .dead {
+        background-color: $dead-red;
+    }
+}

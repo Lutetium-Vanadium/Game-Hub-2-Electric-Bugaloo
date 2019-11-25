@@ -1,4 +1,5 @@
-.GameOfLife {
+.GameOfLife,
+.minesweeper {
   background-color: #282c34;
   color: white;
   font-size: calc(10px + 2vmin);
@@ -6,7 +7,8 @@
   width: 100vw;
 }
 
-.GameOfLife .main-page {
+.GameOfLife .main-page,
+.minesweeper .main-page {
   -ms-flex-line-pack: center;
       align-content: center;
   display: -webkit-box;
@@ -17,7 +19,8 @@
           justify-content: space-between;
 }
 
-.GameOfLife .dashboard {
+.GameOfLife .dashboard,
+.minesweeper .dashboard {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -37,7 +40,8 @@
   background: #282c34;
 }
 
-.GameOfLife .board {
+.GameOfLife .board,
+.minesweeper .board {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -58,7 +62,8 @@
           justify-content: center;
 }
 
-.GameOfLife .main-board {
+.GameOfLife .main-board,
+.minesweeper .main-board {
   height: 90vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -75,7 +80,8 @@
           justify-content: center;
 }
 
-.GameOfLife .footer {
+.GameOfLife .footer,
+.minesweeper .footer {
   height: 10vh;
   width: 70vw;
   display: -webkit-box;
@@ -88,12 +94,14 @@
           align-items: center;
 }
 
-.GameOfLife .footer button {
+.GameOfLife .footer button,
+.minesweeper .footer button {
   width: 10vw;
   height: 5vh;
 }
 
-.GameOfLife #disabled {
+.GameOfLife #disabled,
+.minesweeper #disabled {
   background: #646464;
   cursor: auto;
   -webkit-box-shadow: 1vw 0.5vh 1vw rgba(0, 0, 0, 0.4);
@@ -102,7 +110,8 @@
           transform: scale(1, 1);
 }
 
-.GameOfLife .row {
+.GameOfLife .row,
+.minesweeper .row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -110,14 +119,16 @@
      object-fit: cover;
 }
 
-.GameOfLife .row > div {
+.GameOfLife .row > div,
+.minesweeper .row > div {
   text-align: center;
   border: 1px solid #999;
   -webkit-transition: all 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: all 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-.GameOfLife .rangeSlider {
+.GameOfLife .rangeSlider,
+.minesweeper .rangeSlider {
   margin: 2vh 0;
   width: 18vw;
   -moz-appearance: none;
@@ -130,11 +141,13 @@
   overflow: visible;
 }
 
-.GameOfLife .rangeSlider:focus {
+.GameOfLife .rangeSlider:focus,
+.minesweeper .rangeSlider:focus {
   outline: none;
 }
 
-.GameOfLife .rangeSlider::-webkit-slider-thumb {
+.GameOfLife .rangeSlider::-webkit-slider-thumb,
+.minesweeper .rangeSlider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   height: 25px;
@@ -144,7 +157,8 @@
   content: "hello";
 }
 
-.GameOfLife .rangeSlider::-moz-range-thumb {
+.GameOfLife .rangeSlider::-moz-range-thumb,
+.minesweeper .rangeSlider::-moz-range-thumb {
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
@@ -155,19 +169,22 @@
   content: "hello";
 }
 
-.GameOfLife .rangeSlider::-moz-range-progress {
+.GameOfLife .rangeSlider::-moz-range-progress,
+.minesweeper .rangeSlider::-moz-range-progress {
   height: 20px;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   background-color: #376ac9;
 }
 
-.GameOfLife .submit {
+.GameOfLife .submit,
+.minesweeper .submit {
   color: white;
   padding: 7%;
 }
 
-.GameOfLife .flex {
+.GameOfLife .flex,
+.minesweeper .flex {
   height: 70vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -183,15 +200,18 @@
           flex-direction: column;
 }
 
-.GameOfLife p {
+.GameOfLife p,
+.minesweeper p {
   text-align: center;
 }
 
-.GameOfLife h2 {
+.GameOfLife h2,
+.minesweeper h2 {
   text-align: center;
 }
 
-.GameOfLife button {
+.GameOfLife button,
+.minesweeper button {
   background: none;
   border: none;
   background-color: #376ac9;
@@ -205,7 +225,8 @@
   transition: transform 400ms cubic-bezier(0.215, 0.61, 0.355, 1), background-color 400ms linear, box-shadow 400ms cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 400ms cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-box-shadow 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-.GameOfLife button:hover {
+.GameOfLife button:hover,
+.minesweeper button:hover {
   -webkit-transform: scale(1.1, 1.1);
           transform: scale(1.1, 1.1);
   background-color: #4679d8;
@@ -215,28 +236,33 @@
 }
 
 @media (max-width: 500px) {
-  .GameOfLife .main-page {
+  .GameOfLife .main-page,
+  .minesweeper .main-page {
     -webkit-box-orient: vertical;
     -webkit-box-direction: reverse;
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
   }
-  .GameOfLife .main-board {
+  .GameOfLife .main-board,
+  .minesweeper .main-board {
     width: 100vw;
     height: 75vh;
   }
-  .GameOfLife .board {
+  .GameOfLife .board,
+  .minesweeper .board {
     width: 100vw;
     height: 85vh;
   }
-  .GameOfLife .dashboard {
+  .GameOfLife .dashboard,
+  .minesweeper .dashboard {
     position: absolute;
     bottom: 0;
     width: 100vw;
     -webkit-transition: height 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
     transition: height 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
   }
-  .GameOfLife .dashboard-head {
+  .GameOfLife .dashboard-head,
+  .minesweeper .dashboard-head {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -247,38 +273,46 @@
             align-items: center;
     height: 10vh;
   }
-  .GameOfLife .dashboard-head div {
+  .GameOfLife .dashboard-head div,
+  .minesweeper .dashboard-head div {
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
   }
-  .GameOfLife .dashboard-head h2 {
+  .GameOfLife .dashboard-head h2,
+  .minesweeper .dashboard-head h2 {
     margin: 0 !important;
     -webkit-box-flex: 5;
         -ms-flex: 5;
             flex: 5;
     width: 80vw;
   }
-  .GameOfLife .rangeSlider {
+  .GameOfLife .rangeSlider,
+  .minesweeper .rangeSlider {
     width: 80vw;
   }
-  .GameOfLife h2 {
+  .GameOfLife h2,
+  .minesweeper h2 {
     margin-top: 20px;
   }
-  .GameOfLife .footer {
+  .GameOfLife .footer,
+  .minesweeper .footer {
     width: 100vw;
   }
-  .GameOfLife .footer button {
+  .GameOfLife .footer button,
+  .minesweeper .footer button {
     width: auto;
     padding: 0 20px;
   }
 }
 
-.GameOfLife .exit {
+.GameOfLife .exit,
+.minesweeper .exit {
   background: none;
 }
 
-.GameOfLife .exit:hover {
+.GameOfLife .exit:hover,
+.minesweeper .exit:hover {
   background: none;
   -webkit-transform: scale(1, 1);
           transform: scale(1, 1);

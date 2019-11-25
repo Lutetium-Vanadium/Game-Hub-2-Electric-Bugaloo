@@ -25,7 +25,9 @@ function Home({ history }) {
                         name={name || id}
                     />
                 ))}
-                <button className="icon">Temp</button>
+                <button onClick={goToApp} title="/Minesweeper" className="icon">
+                    Minesweeper
+                </button>
                 <button className="icon">Temp</button>
             </div>
             <div className="row">
@@ -45,7 +47,7 @@ function Home({ history }) {
 export default withRouter(Home);
 
 const games = [
-    { id: "TicTacToe", title: "/TicTacToe" },
+    { id: "TicTacToe", title: "/Tic-Tac-Toe" },
     { id: "GameOfLife", title: "/GameOfLife", name: "Game of Life" },
     { id: "Snake", title: "/Snake" }
 ];

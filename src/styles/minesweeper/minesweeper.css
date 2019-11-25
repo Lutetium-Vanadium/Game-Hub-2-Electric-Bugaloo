@@ -1,0 +1,42 @@
+.minesweeper {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+}
+
+.minesweeper .regular-box {
+  background: #6e6e6e;
+}
+
+.minesweeper .row div {
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.minesweeper .flag-box {
+  background-image: url("../../pictures/flag.png");
+  background-size: 80% 80%;
+  background-repeat: no-repeat;
+  background-position: 80% 80%;
+  background-color: #6e6e6e;
+}
+
+.minesweeper .bomb {
+  background-image: url("../../pictures/mine.png");
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.minesweeper .dead {
+  background-color: #590505;
+}
+/*# sourceMappingURL=minesweeper.css.map */
