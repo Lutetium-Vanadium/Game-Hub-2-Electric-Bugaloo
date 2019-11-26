@@ -2,6 +2,15 @@
   position: absolute;
   height: 100vh;
   width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.minesweeper .dashboard {
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .minesweeper .regular-box {
@@ -38,5 +47,34 @@
 
 .minesweeper .dead {
   background-color: #590505;
+}
+
+.minesweeper .dead-button {
+  background-color: #df0000;
+}
+
+.minesweeper .apply-changes {
+  width: 12vw;
+  height: 5vw;
+  max-width: 150px;
+  max-height: 60px;
+}
+
+.minesweeper .deactivated {
+  background-color: #6e6e6e;
+}
+
+.minesweeper .deactivated:hover {
+  background-color: #6e6e6e;
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+  cursor: auto;
+}
+
+.minesweeper button {
+  width: 13vw;
+  height: 5vw;
+  max-width: 180px;
+  max-height: 75px;
 }
 /*# sourceMappingURL=minesweeper.css.map */

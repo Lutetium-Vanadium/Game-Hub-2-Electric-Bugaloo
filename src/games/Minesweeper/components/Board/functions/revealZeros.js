@@ -4,6 +4,7 @@ const revealZeros = (boxes, i, j) => {
     let queue = [[i, j]];
 
     newBoxes[i][j].text = "";
+    newBoxes[i][j].isOpen = true;
     let check = false;
 
     while (queue.length > 0) {

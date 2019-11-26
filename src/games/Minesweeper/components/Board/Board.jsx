@@ -9,12 +9,11 @@ import {
 } from "./functions";
 import Row from "./Row";
 
-function Board(props) {
+function Board({ width, height, numBombs, resetter, dead, setDead }) {
     const [boxes, setBoxes] = useState(
-        initBoxes(props.width, props.height, props.numBombs)
+        initBoxValues(initBoxes(width, height, numBombs))
     );
     const [boxSize, setBoxSize] = useState(0);
-    const [dead, setDead] = useState(false);
 
     const die = () => {
         setBoxes(revealAll(boxes));
@@ -22,8 +21,18 @@ function Board(props) {
     };
 
     const reset = () => {
-        setBoxes(initBoxes(props.width, props.height, props.numBombs));
+        setBoxes(initBoxValues(initBoxes(width, height, numBombs)));
         setDead(false);
+        let maxHeight = 0.9;
+        let maxWidth = typeof window.orientation !== "undefined" ? 1 : 0.7;
+
+        setBoxSize(
+            height / width >
+                (window.innerHeight * maxHeight) /
+                    (window.innerWidth * maxWidth)
+                ? (window.innerHeight * maxHeight) / height
+                : (maxWidth * window.innerWidth) / width
+        );
     };
 
     const openBox = (e, i, j) => {
@@ -56,20 +65,25 @@ function Board(props) {
     };
 
     useEffect(() => {
-        let maxHeight = 0.8;
+        let maxHeight = 0.9;
         let maxWidth = typeof window.orientation !== "undefined" ? 1 : 0.7;
 
         setBoxSize(
-            props.height / props.width >
+            height / width >
                 (window.innerHeight * maxHeight) /
                     (window.innerWidth * maxWidth)
-                ? (window.innerHeight * maxHeight) / props.height
-                : (maxWidth * window.innerWidth) / props.width
+                ? (window.innerHeight * maxHeight) / height
+                : (maxWidth * window.innerWidth) / width
         );
-
-        setBoxes(initBoxValues(boxes));
         // eslint-disable-next-line
     }, []);
+
+    useEffect(() => {
+        if (resetter > 0) {
+            reset();
+        }
+        // eslint-disable-next-line
+    }, [resetter]);
 
     return (
         <div className="board">
