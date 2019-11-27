@@ -10,10 +10,12 @@ export default function Minesweeper() {
     const [numBombs, setNumBombs] = useState(16);
     const [resetter, setResetter] = useState(0);
     const [dead, setDead] = useState(false);
+    const [win, setWin] = useState(false);
 
     const restart = () => {
         setResetter(resetter + 1);
         setDead(false);
+        setWin(false);
     };
 
     return (
@@ -23,7 +25,9 @@ export default function Minesweeper() {
                 numBombs={numBombs}
                 resetter={resetter}
                 dead={dead}
+                win={win}
                 setDead={setDead}
+                setWin={setWin}
             />
             <DashBoard
                 setDimensions={setDimensions}
@@ -32,6 +36,7 @@ export default function Minesweeper() {
                 {...dimensions}
                 restart={restart}
                 dead={dead}
+                win={win}
             />
             <Link to="/" className="exit">
                 Exit

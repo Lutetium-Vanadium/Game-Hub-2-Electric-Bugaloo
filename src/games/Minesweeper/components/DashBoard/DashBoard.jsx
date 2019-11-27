@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 export default function DashBoard({
     dead,
+    win,
     setDimensions,
     setNumBombs,
     width,
@@ -24,17 +25,18 @@ export default function DashBoard({
     };
 
     const changed =
-        width !== values.width ||
-        height !== values.height ||
-        numBombs !== values.numBombs;
+        width !== values.width || height !== values.height || numBombs !== values.numBombs;
 
     return (
-        <div className={`dashboard ${dead ? "dead" : ""}`}>
-            <button className={dead ? "dead-button" : ""} onClick={restart}>
+        <div className={`dashboard ${dead ? "dead" : ""} ${win ? "win" : ""}`}>
+            <button
+                className={`${dead ? "dead-button" : ""} ${win ? "win-button" : ""}`}
+                onClick={restart}
+            >
                 Restart
             </button>
             <div>
-                <p>Width</p>
+                <p>Width: {values.width}</p>
                 <input
                     type="range"
                     name="width"
@@ -46,7 +48,7 @@ export default function DashBoard({
                 />
             </div>
             <div>
-                <p>Height</p>
+                <p>Height: {values.height}</p>
                 <input
                     type="range"
                     name="height"
@@ -58,7 +60,7 @@ export default function DashBoard({
                 />
             </div>
             <div>
-                <p>Number of Bombs</p>
+                <p>Number of Bombs: {values.numBombs}</p>
                 <input
                     type="range"
                     name="numBombs"
@@ -72,8 +74,8 @@ export default function DashBoard({
             <button
                 className={`apply-changes ${changed ? "" : "deactivated"} ${
                     dead ? "dead-button" : ""
-                }`}
-                onClick={applyChanges}
+                } ${win ? "win-button" : ""}`}
+                onClick={changed ? applyChanges : null}
             >
                 Apply Changes
             </button>

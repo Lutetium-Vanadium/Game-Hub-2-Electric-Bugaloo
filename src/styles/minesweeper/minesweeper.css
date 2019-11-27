@@ -53,6 +53,14 @@
   background-color: #df0000;
 }
 
+.minesweeper .win {
+  background-color: #15611d;
+}
+
+.minesweeper .win-button {
+  background-color: #0ab10a;
+}
+
 .minesweeper .apply-changes {
   width: 12vw;
   height: 5vw;
@@ -62,6 +70,8 @@
 
 .minesweeper .deactivated {
   background-color: #6e6e6e;
+  -webkit-box-shadow: 0.4vw 0.2vh 0.4vw 0.3vh rgba(0, 0, 0, 0.2);
+          box-shadow: 0.4vw 0.2vh 0.4vw 0.3vh rgba(0, 0, 0, 0.2);
 }
 
 .minesweeper .deactivated:hover {
@@ -69,6 +79,20 @@
   -webkit-transform: scale(1, 1);
           transform: scale(1, 1);
   cursor: auto;
+}
+
+.minesweeper .scoreboard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.minesweeper .scoreboard p {
+  margin: 10px 2.5vw;
 }
 
 .minesweeper button {

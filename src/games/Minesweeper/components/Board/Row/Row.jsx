@@ -1,10 +1,6 @@
 import React from "react";
 
-export default function Row({ openBox, boxes, size, row_num, dead }) {
-    // const openBox = i => {
-    //     console.log({ i, row_num });
-    // };
-
+export default function Row({ openBox, boxes, size, row_num, dead, win }) {
     return (
         <div className="row">
             {boxes.map(({ isOpen, isFlag, numAround, text }, i) => {
@@ -27,7 +23,7 @@ export default function Row({ openBox, boxes, size, row_num, dead }) {
                             borderRadius: (3.5 * size) / 40,
                             fontSize: size / 2
                         }}
-                        className={`${className} ${dead ? "dead" : ""}`}
+                        className={`${className} ${dead ? "dead" : ""} ${win ? "win" : ""}`}
                     >
                         {isOpen ? text : ""}
                     </div>

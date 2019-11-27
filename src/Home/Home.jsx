@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 
-import Icon from "./icons";
+import Icon from "./Icon";
 
 import "styles/home/home.css";
 import "styles/animations/animations.css";
@@ -25,9 +25,6 @@ function Home({ history }) {
                         name={name || id}
                     />
                 ))}
-                <button onClick={goToApp} title="/Minesweeper" className="icon">
-                    Minesweeper
-                </button>
                 <button className="icon">Temp</button>
             </div>
             <div className="row">
@@ -49,5 +46,6 @@ export default withRouter(Home);
 const games = [
     { id: "TicTacToe", title: "/Tic-Tac-Toe" },
     { id: "GameOfLife", title: "/GameOfLife", name: "Game of Life" },
-    { id: "Snake", title: "/Snake" }
+    { id: "Snake", title: "/Snake" },
+    { id: "Minesweeper", title: "/Minesweeper" }
 ];

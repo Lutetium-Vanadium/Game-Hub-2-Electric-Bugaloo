@@ -15,6 +15,7 @@ const revealZeros = (boxes, i, j) => {
 
         if (x > 0) {
             newBoxes[x - 1][y].isOpen = true;
+
             if (newBoxes[x - 1][y].numAround === 0) {
                 queue.push([x - 1, y]);
             }
@@ -22,6 +23,7 @@ const revealZeros = (boxes, i, j) => {
 
         if (y > 0) {
             newBoxes[x][y - 1].isOpen = true;
+
             if (newBoxes[x][y - 1].numAround === 0) {
                 queue.push([x, y - 1]);
             }
@@ -29,6 +31,7 @@ const revealZeros = (boxes, i, j) => {
 
         if (x < size[0] - 1) {
             newBoxes[x + 1][y].isOpen = true;
+
             if (newBoxes[x + 1][y].numAround === 0) {
                 queue.push([x + 1, y]);
             }
@@ -36,6 +39,7 @@ const revealZeros = (boxes, i, j) => {
 
         if (y < size[1] - 1) {
             newBoxes[x][y + 1].isOpen = true;
+
             if (newBoxes[x][y + 1].numAround === 0) {
                 queue.push([x, y + 1]);
             }
@@ -43,6 +47,7 @@ const revealZeros = (boxes, i, j) => {
 
         if (x < size[0] - 1 && y < size[1] - 1) {
             newBoxes[x + 1][y + 1].isOpen = true;
+
             if (newBoxes[x + 1][y + 1].numAround === 0) {
                 queue.push([x + 1, y + 1]);
             }
@@ -50,6 +55,7 @@ const revealZeros = (boxes, i, j) => {
 
         if (x < size[0] - 1 && y > 0) {
             newBoxes[x + 1][y - 1].isOpen = true;
+
             if (newBoxes[x + 1][y - 1].numAround === 0) {
                 queue.push([x + 1, y - 1]);
             }
@@ -57,6 +63,7 @@ const revealZeros = (boxes, i, j) => {
 
         if (x > 0 && y < size[1] - 1) {
             newBoxes[x - 1][y + 1].isOpen = true;
+
             if (newBoxes[x - 1][y + 1].numAround === 0) {
                 queue.push([x - 1, y + 1]);
             }
@@ -64,6 +71,7 @@ const revealZeros = (boxes, i, j) => {
 
         if (x > 0 && y > 0) {
             newBoxes[x - 1][y - 1].isOpen = true;
+
             if (newBoxes[x - 1][y - 1].numAround === 0) {
                 queue.push([x - 1, y - 1]);
             }
@@ -73,7 +81,15 @@ const revealZeros = (boxes, i, j) => {
         check = true;
     }
 
-    return newBoxes;
+    let newBoxesClicked = 0;
+
+    newBoxes.forEach(row => {
+        row.forEach(({ isOpen, isFlag }) => {
+            if (isOpen || isFlag) newBoxesClicked++;
+        });
+    });
+
+    return [newBoxes, newBoxesClicked];
 };
 
 export default revealZeros;

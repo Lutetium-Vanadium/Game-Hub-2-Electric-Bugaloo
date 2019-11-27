@@ -6,6 +6,7 @@
 
     $gray: rgb(110, 110, 110);
     $dead-red: rgb(89, 5, 5);
+    $win-green: rgb(21, 97, 29);
 
     .dashboard {
         justify-content: space-evenly;
@@ -45,6 +46,14 @@
         background-color: #df0000;
     }
 
+    .win {
+        background-color: $win-green;
+    }
+
+    .win-button {
+        background-color: #0ab10a;
+    }
+
     .apply-changes {
         width: 12vw;
         height: 5vw;
@@ -54,11 +63,22 @@
 
     .deactivated {
         background-color: $gray;
+        box-shadow: 0.4vw 0.2vh 0.4vw 0.3vh rgba(0, 0, 0, 0.2);
 
         &:hover {
             background-color: $gray;
             transform: scale(1, 1);
             cursor: auto;
+        }
+    }
+
+    .scoreboard {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+
+        p {
+            margin: 10px 2.5vw;
         }
     }
 
